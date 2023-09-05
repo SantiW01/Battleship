@@ -6,6 +6,8 @@ test("Create ship", () => {
     BeingHit: expect.any(Function),
     GetLength: expect.any(Function),
     GetTimesHit: expect.any(Function),
+    GetShipPosition: expect.any(Function),
+    GetIsVertical: expect.any(Function),
     IsSunk: expect.any(Function),
   });
 });
