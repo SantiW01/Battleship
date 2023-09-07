@@ -40,7 +40,8 @@ test("ship must be placed into positions selected", () => {
     newShip.GetIsVertical()
   );
   const finalPosition = newGameboard.PlaceShip(newShip.GetShipPosition());
-  expect(finalPosition).toEqual([
+  newShip.SetShipPosition(finalPosition);
+  expect(newShip.GetShipPosition()).toEqual([
     ["A", 1, true],
     ["B", 1, true],
     ["C", 1, true],

@@ -9,6 +9,7 @@ test("Create ship", () => {
     GetShipPosition: expect.any(Function),
     GetIsVertical: expect.any(Function),
     IsSunk: expect.any(Function),
+    SetShipPosition: expect.any(Function),
   });
 });
 

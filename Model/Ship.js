@@ -3,6 +3,9 @@ const Ship = (length, timesHit, isVertical, shipPosition) => {
   const GetIsVertical = () => isVertical;
   const GetLength = () => length;
   const GetTimesHit = () => timesHit;
+  const SetShipPosition = (positionSelected) => {
+    shipPosition = positionSelected;
+  };
   const BeingHit = (hit) => {
     if (hit) return timesHit++;
   };
@@ -16,6 +19,7 @@ const Ship = (length, timesHit, isVertical, shipPosition) => {
     GetShipPosition,
     IsSunk,
     BeingHit,
+    SetShipPosition,
   };
 };
 
