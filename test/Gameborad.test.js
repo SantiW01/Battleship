@@ -6,6 +6,7 @@ test("Create gameboard", () => {
     GetPositions: expect.any(Function),
     SetCoordinates: expect.any(Function),
     PlaceShip: expect.any(Function),
+    AttackReceived: expect.any(Function),
   });
 });
 
@@ -46,4 +47,12 @@ test("ship must be placed into positions selected", () => {
     ["B", 1, true],
     ["C", 1, true],
   ]);
+});
+
+test("Position selected must be taken of from array", () => {
+  const newGameboard = Gameboard();
+  newGameboard.SetCoordinates(3, ["A", 0], false);
+  newGameboard.PlaceShip([]);
+  newGameboard.AttackReceived(["A", 1]);
+  expect(newGameboard.GetPositions()).not.toContain(["A", 1]);
 });

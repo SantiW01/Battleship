@@ -1,5 +1,5 @@
 const Gameboard = () => {
-  const positions = [
+  let positions = [
     ["A", 0, false],
     ["A", 1, false],
     ["A", 2, false],
@@ -102,6 +102,9 @@ const Gameboard = () => {
     ["J", 9, false],
   ];
   const GetPositions = () => positions;
+  const SetPosition = (position) => {
+    positions = position;
+  };
   const SetCoordinates = (shipSize, positionChosen, isVertical) => {
     let firstPosition = GetPositions().filter((value) => {
       if (!value[0].includes(positionChosen[0])) return false;
@@ -140,6 +143,19 @@ const Gameboard = () => {
     arrayShip = [...shipPositions];
     return arrayShip;
   };
-  return { GetPositions, SetCoordinates, PlaceShip };
+
+  const AttackReceived = (positionSelected) => {
+    const newArray = GetPositions().filter((value) => {
+      if (
+        value[0].includes(positionSelected[0]) &&
+        value[1].toString().includes(positionSelected[1])
+      )
+        return false;
+      return value;
+    });
+    SetPosition(newArray);
+  };
+  return { GetPositions, SetCoordinates, PlaceShip, AttackReceived };
 };
+
 module.exports = Gameboard;
